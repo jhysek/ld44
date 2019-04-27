@@ -3,6 +3,7 @@ extends Node
 var levels = [
 	"res://Levels/Level0.tscn",
 	"res://Levels/Level1.tscn",	
+	"res://Levels/Level2.tscn",	
 ]
 
 var current_level = 0
