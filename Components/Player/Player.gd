@@ -11,6 +11,7 @@ var possessing = false
 var jump_timeout = 0
 
 var motion = Vector2(0,0)
+var external_force = Vector2(0,0)
 
 onready var breakup_ray = $BreakupRay
 onready var influence_range = $InfluenceRange
@@ -30,7 +31,7 @@ func _physics_process(delta):
 	if dead:
 		motion.x = lerp(motion.x, 0, 4 * delta)
 			
-	motion = move_and_slide(motion, Vector2(0, -1), 1, 4)
+	motion = move_and_slide(motion + external_force, Vector2(0, -1), 1, 4)
 
 
 func controlled_process(delta):
