@@ -82,7 +82,7 @@ func controlled_process(delta):
 			#	 $RunParticles.emitting = true
 			
 		elif !Input.is_action_pressed('ui_right'):
-			if !in_air and anim.current_animation != "Idle":
+			if !in_air and anim.current_animation != "Idle" and anim.current_animation != "Breakup":
 				anim.play("Idle")
 			#	$RunParticles.emitting = false
 				
@@ -92,13 +92,18 @@ func controlled_process(delta):
 				
 		if Input.is_action_just_pressed('ui_breakup'):
 			print("BREAKING");
+			anim.play("Breakup")
 			if breakup_ray.is_colliding():
 				print("Colliding");
 				breakup_ray.get_collider().breakup()
 				
 		if Input.is_action_just_pressed('ui_select'):
+			anim.play("Breakup")
 			for body in influence_range.get_overlapping_bodies():
 				body.possess()
+				
+		if Input.is_action_just_released('ui_select'):
+			anim.play("StopPossessing")
 		
 	else:
 		motion.x = 0

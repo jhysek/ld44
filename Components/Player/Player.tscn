@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Components/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/influence_range.png" type="Texture" id=2]
@@ -13,7 +13,7 @@
 extents = Vector2( 20.0534, 88.778 )
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 289.125
+radius = 385.053
 
 [sub_resource type="Animation" id=9]
 resource_name = "Breakup"
@@ -399,6 +399,72 @@ tracks/9/keys = {
 "values": [ 1.0, 1.0 ]
 }
 
+[sub_resource type="Animation" id=10]
+resource_name = "Possess"
+tracks/0/type = "value"
+tracks/0/path = NodePath("InfluenceRange:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("InfluenceRange:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.378929, 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "StopPossessing"
+tracks/0/type = "value"
+tracks/0/path = NodePath("InfluenceRange:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 3, 3 ), Vector2( 0.1, 0.21 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("InfluenceRange:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("InfluenceRange:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
 [sub_resource type="Animation" id=7]
 resource_name = "WalkLeft"
 length = 1.2
@@ -705,17 +771,24 @@ position = Vector2( 1.58885, -32.7878 )
 shape = SubResource( 1 )
 
 [node name="InfluenceRange" type="Area2D" parent="."]
-editor/display_folded = true
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 4.2323, -76.1809 )
+scale = Vector2( 0.1, 0.21 )
 collision_layer = 32
 collision_mask = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InfluenceRange"]
-shape = SubResource( 2 )
 
 [node name="Light2D" type="Light2D" parent="InfluenceRange"]
 texture = ExtResource( 2 )
 color = Color( 0.694118, 0, 0.686275, 1 )
 shadow_enabled = true
+
+[node name="Sprite" type="Sprite" parent="InfluenceRange"]
+modulate = Color( 0.458824, 0, 0.439216, 0.254902 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InfluenceRange"]
+shape = SubResource( 2 )
 
 [node name="Visual" type="Node2D" parent="."]
 scale = Vector2( 0.5, 0.5 )
@@ -767,6 +840,8 @@ autoplay = "Idle"
 anims/Breakup = SubResource( 9 )
 anims/Idle = SubResource( 5 )
 anims/Jump = SubResource( 8 )
+anims/Possess = SubResource( 10 )
+anims/StopPossessing = SubResource( 11 )
 anims/WalkLeft = SubResource( 7 )
 anims/WalkRight = SubResource( 6 )
 
