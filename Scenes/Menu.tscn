@@ -1,30 +1,94 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
+[ext_resource path="res://Components/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/bebas.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/font_big.tres" type="DynamicFont" id=4]
 
-[node name="Control" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[sub_resource type="DynamicFont" id=1]
+size = 60
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="Menu" type="Node2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ 448.875 ]
+}
 
-[node name="Label" type="Label" parent="."]
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 967.565, 527.975 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+GRAVITY = 0
+dead = true
+
+[node name="InfluenceRange" parent="Player" index="1"]
+visible = true
+modulate = Color( 1, 1, 1, 1 )
+scale = Vector2( 1, 1 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( 227.918, -77.9208 )
+current = true
+
+[node name="Label" type="Label" parent="Player"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -23.3403
-margin_top = 30.0633
-margin_right = 16.6597
-margin_bottom = 44.0633
-text = "TITLE"
+margin_left = 522.079
+margin_top = -304.414
+margin_right = 642.079
+margin_bottom = -224.414
+rect_scale = Vector2( -1, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.843137, 0, 1 )
+text = "GOLD"
 
-[node name="Button" type="Button" parent="."]
+[node name="Start" type="Button" parent="Player/Label"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -46.0
-margin_top = -10.0
-margin_right = 46.0
-margin_bottom = 10.0
+margin_left = -65.2346
+margin_top = 165.789
+margin_right = 148.765
+margin_bottom = 224.789
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 0.796078, 0, 1 )
 text = "START GAME"
+flat = true
 
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[node name="Label" type="Label" parent="Player/Label"]
+margin_left = 3.58667
+margin_top = 89.1188
+margin_right = 433.587
+margin_bottom = 228.119
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.333333, 0.333333, 0.333333, 1 )
+text = "Ludum   Dare  #44  Compo  Entry
+Made  IN  48h  from  scratch  by  JIRI  HYSEK"
+autowrap = true
+
+[node name="Label2" type="Label" parent="Player"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 400.934
+margin_top = -304.747
+margin_right = 568.934
+margin_bottom = -224.747
+rect_scale = Vector2( -1, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.647059, 0.647059, 0.647059, 1 )
+text = "DIGGER"
+
+[connection signal="pressed" from="Player/Label/Start" to="." method="_on_Button_pressed"]
+
+[editable path="Player"]

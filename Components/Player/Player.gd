@@ -3,8 +3,8 @@ extends KinematicBody2D
 export var GRAVITY = 70 * 70 
 export var SPEED   = 40000
 export var JUMP_SPEED  = -1400
+export var dead = false
 
-var dead = false
 var in_air = false
 var was_in_air = false
 var possessing = false
