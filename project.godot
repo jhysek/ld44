@@ -16,8 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="LD44 - The Gold-digger"
-run/main_scene="res://Scenes/Wolrd.tscn"
+run/main_scene="res://Scenes/Menu.tscn"
+boot_splash/bg_color=Color( 0.0392157, 0.0392157, 0.0392157, 1 )
 config/icon="res://icon.png"
+
+[autoload]
+
+LevelControler="*res://Scripts/LevelControler.gd"
 
 [input]
 
@@ -45,6 +50,8 @@ ui_breakup={
 [rendering]
 
 quality/driver/driver_name="GLES2"
+quality/2d/use_pixel_snap=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+environment/default_clear_color=Color( 0.0392157, 0.0392157, 0.0392157, 1 )
 environment/default_environment="res://default_env.tres"

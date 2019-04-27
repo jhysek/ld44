@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Components/Man/Man.gd" type="Script" id=1]
 [ext_resource path="res://Components/Man/Assets/heart.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Components/Man/Assets/left_leg_middle.png" type="Texture" id=9]
 [ext_resource path="res://Components/Man/Assets/left_arm.png" type="Texture" id=10]
 [ext_resource path="res://Components/Man/Assets/right_arm.png" type="Texture" id=11]
+[ext_resource path="res://Components/Man/Assets/head_sad.png" type="Texture" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20.92, 78.35 )
@@ -52,6 +53,18 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Visual/Body/Head:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 12 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -105,6 +118,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Visual/Body/Head:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -761,4 +786,6 @@ anims/FallInLove = SubResource( 5 )
 anims/Idle = SubResource( 2 )
 anims/WalkLeft = SubResource( 4 )
 anims/WalkRight = SubResource( 3 )
+
+[node name="Broken" type="Node2D" parent="."]
 

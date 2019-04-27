@@ -853,7 +853,7 @@ position = Vector2( 15.4756, 87.4372 )
 texture = ExtResource( 8 )
 
 [node name="BreakupRay" type="RayCast2D" parent="."]
-position = Vector2( 0, -67.5264 )
+position = Vector2( 1.81381, 0.794479 )
 enabled = true
 cast_to = Vector2( 600, 0 )
 collision_mask = 32
