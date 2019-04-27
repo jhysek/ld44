@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/heart_left.png-2cb95d8d8f2982e3c9880b4a187f8e53.stex"
+path="res://.import/heart_left.png-71992b25b48f10c6186f43a2a1dc9709.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Components/Man/Assets/heart_left.png"
-dest_files=[ "res://.import/heart_left.png-2cb95d8d8f2982e3c9880b4a187f8e53.stex" ]
+source_file="res://Components/Player/Assets/heart_left.png"
+dest_files=[ "res://.import/heart_left.png-71992b25b48f10c6186f43a2a1dc9709.stex" ]
 
 [params]
 

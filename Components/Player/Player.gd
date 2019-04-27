@@ -8,6 +8,7 @@ var dead = false
 var in_air = false
 var was_in_air = false
 var possessing = false
+var breaking_up = false
 var jump_timeout = 0
 
 var motion = Vector2(0,0)
@@ -52,19 +53,20 @@ func controlled_process(delta):
 		
 	was_in_air = in_air
 	
-	if !possessing and !dead:
+	if !dead:
 		if not in_air and Input.is_action_just_pressed("ui_up"):
 			in_air = true
 			#$RunParticles.emitting = false
 			jump_timeout = 0
-			anim.play("Jump")
+			if !breaking_up and !possessing:
+			  anim.play("Jump")
 			#$Sfx/Jump0.play()
 			motion.y = JUMP_SPEED
 			#if sfx_run:
 			#	sfx_run.stop()
 	
 		if Input.is_action_pressed('ui_right'):
-			if not in_air and anim.current_animation != "WalkRight":
+			if !breaking_up and !possessing and !in_air and anim.current_animation != "WalkRight":
 			  anim.play("WalkRight")
 			motion.x = min(motion.x + SPEED * delta, SPEED * delta)
 			sprite.scale.x = 0.5
@@ -73,7 +75,7 @@ func controlled_process(delta):
 			#	 $RunParticles.emitting = true
 				
 		if Input.is_action_pressed('ui_left'):
-			if not in_air and anim.current_animation != "WalkLeft":
+			if not breaking_up and not possessing and  not in_air and anim.current_animation != "WalkLeft":
 			  anim.play("WalkLeft")
 			motion.x = max(motion.x - SPEED * delta, -SPEED * delta)
 			sprite.scale.x = -0.5
@@ -83,7 +85,7 @@ func controlled_process(delta):
 			#	 $RunParticles.emitting = true
 			
 		elif !Input.is_action_pressed('ui_right'):
-			if !in_air and anim.current_animation != "Idle" and anim.current_animation != "Breakup" and not possessing:
+			if not breaking_up and not possessing and !in_air and anim.current_animation != "Idle" and anim.current_animation != "Breakup" and not possessing:
 				anim.play("Idle")
 			#	$RunParticles.emitting = false
 				
@@ -92,27 +94,28 @@ func controlled_process(delta):
 			#	sfx_run.stop()
 				
 		if Input.is_action_just_pressed('ui_breakup'):
-			print("BREAKING");
 			anim.play("Breakup")
-			if breakup_ray.is_colliding():
-				print("Colliding");
-				breakup_ray.get_collider().breakup()
+			breaking_up = true
+			$BreakUpTimer.start()
 				
-		if Input.is_action_just_pressed('ui_select'):
+		if !breaking_up and Input.is_action_just_pressed('ui_select'):
 			anim.play("Possess")
 			possessing = true
 			for body in influence_range.get_overlapping_bodies():
 				body.possess()
 				
-
 		
 	else:
 		motion.x = 0
 
+func broke_up():
+	breaking_up = false
+	if breakup_ray.is_colliding():
+		breakup_ray.get_collider().breakup()
 
 func stop_possessing():
-	print("Stopping possession");
 	possessing = false
-	anim.stop()
-	anim.play("StopPossessing")
-	influence_range.hide()
+	
+
+func _on_BreakUpTimer_timeout():
+	broke_up();	
