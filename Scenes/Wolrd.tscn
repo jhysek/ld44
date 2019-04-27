@@ -29,12 +29,12 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 [node name="Wolrd" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-editor/display_folded = true
 collision_layer = 17
 collision_mask = 17
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
+zoom = Vector2( 2, 2 )
 smoothing_enabled = true
 
 [node name="TileMap" type="TileMap" parent="."]

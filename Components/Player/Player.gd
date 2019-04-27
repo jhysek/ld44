@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-export var GRAVITY = 40 * 70 
-export var SPEED   = 30000
-export var JUMP_SPEED  = -900
+export var GRAVITY = 70 * 70 
+export var SPEED   = 40000
+export var JUMP_SPEED  = -1400
 
 var dead = false
 var in_air = false
@@ -15,6 +15,7 @@ var motion = Vector2(0,0)
 onready var breakup_ray = $BreakupRay
 onready var influence_range = $InfluenceRange
 onready var anim = $AnimationPlayer
+onready var sprite = $Visual
 
 func _ready():
   set_physics_process(true)
@@ -55,34 +56,34 @@ func controlled_process(delta):
 			in_air = true
 			#$RunParticles.emitting = false
 			jump_timeout = 0
-			#anim.play("Jump")
+			anim.play("Jump")
 			#$Sfx/Jump0.play()
 			motion.y = JUMP_SPEED
 			#if sfx_run:
 			#	sfx_run.stop()
 	
 		if Input.is_action_pressed('ui_right'):
-			#if not in_air and anim.current_animation != "WalkRight":
-			anim.play("WalkRight")
+			if not in_air and anim.current_animation != "WalkRight":
+			  anim.play("WalkRight")
 			motion.x = min(motion.x + SPEED * delta, SPEED * delta)
-			#sprite.scale.x = 1
+			sprite.scale.x = 0.5
 			#if sfx_run and !sfx_run.playing and !in_air:
 			#	 sfx_run.play()
 			#	 $RunParticles.emitting = true
 				
 		if Input.is_action_pressed('ui_left'):
-			#if not in_air and anim.current_animation != "WalkLeft":
-			anim.play("WalkLeft")
+			if not in_air and anim.current_animation != "WalkLeft":
+			  anim.play("WalkLeft")
 			motion.x = max(motion.x - SPEED * delta, -SPEED * delta)
-			#sprite.scale.x = -1
+			sprite.scale.x = -0.5
 			
 			#if sfx_run and !sfx_run.playing and !in_air:
 			#	 sfx_run.play()
 			#	 $RunParticles.emitting = true
 			
 		elif !Input.is_action_pressed('ui_right'):
-			#if !in_air and anim.current_animation != idle_controlled_anim and fire_cooldown <= 0:
-			#	anim.play(idle_controlled_anim)
+			if !in_air and anim.current_animation != "Idle":
+				anim.play("Idle")
 			#	$RunParticles.emitting = false
 				
 			motion.x = 0

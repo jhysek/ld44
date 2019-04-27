@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Components/Man/Man.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Components/Man/Assets/body.png" type="Texture" id=2]
+[ext_resource path="res://Components/Man/Assets/head.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24.9747, 31.1772 )
@@ -17,6 +18,10 @@ shape = SubResource( 1 )
 
 [node name="Visual" type="Node2D" parent="."]
 
-[node name="Sprite" type="Sprite" parent="Visual"]
+[node name="Body" type="Sprite" parent="Visual"]
 texture = ExtResource( 2 )
+
+[node name="Head" type="Sprite" parent="Visual/Body"]
+position = Vector2( -11.119, -123.235 )
+texture = ExtResource( 3 )
 
