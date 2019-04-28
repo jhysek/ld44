@@ -101,12 +101,12 @@ func controlled_process(delta):
 			anim.play("Breakup")
 			breaking_up = true
 			$BreakUpTimer.start()
-			$Sfx/Breakup1.play()
+			$Sfx.get_node("Breakup" + str(randi() % 2 + 1)).play()
 				
 		if !breaking_up and Input.is_action_just_pressed('ui_select'):
 			anim.play("Possess")
 			possessing = true
-			$Sfx/Possess1.play()
+			$Sfx.get_node("Possess" + str(randi() % 2 + 1)).play()
 			for body in influence_range.get_overlapping_bodies():
 				if body.is_in_group("Possessable"):
 					body.possess()

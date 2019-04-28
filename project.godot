@@ -25,6 +25,11 @@ config/icon="res://icon.png"
 LevelControler="*res://Scripts/LevelControler.gd"
 BgMusic="*res://Scenes/BgMusic.tscn"
 
+[display]
+
+window/size/width=1280
+window/size/height=800
+
 [input]
 
 ui_accept={
@@ -79,6 +84,7 @@ ui_breakup={
 [rendering]
 
 quality/driver/driver_name="GLES2"
+quality/intended_usage/framebuffer_allocation=0
 quality/2d/use_pixel_snap=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
