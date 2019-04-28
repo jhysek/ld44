@@ -1,22 +1,23 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Components/Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/bebas.otf" type="DynamicFontData" id=3]
-[ext_resource path="res://Assets/font_big.tres" type="DynamicFont" id=4]
-[ext_resource path="res://Scenes/UISfx.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Menubg.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/bebas.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/font_big.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Scenes/UISfx.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
 use_mipmaps = true
 use_filter = true
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 20
 use_mipmaps = true
 use_filter = true
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
 
 [node name="Menu" type="Node2D"]
 script = ExtResource( 1 )
@@ -26,7 +27,6 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-editor/display_folded = true
 position = Vector2( 967.565, 527.975 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
@@ -40,11 +40,14 @@ scale = Vector2( 1, 1 )
 texture_scale = 1.0
 
 [node name="Sprite" parent="Player/InfluenceRange" index="2"]
+modulate = Color( 0.458824, 0, 0.439216, 0.101961 )
 scale = Vector2( 1, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 227.918, -77.9208 )
 current = true
+
+[node name="Sprite" parent="Player" instance=ExtResource( 3 )]
 
 [node name="Label" type="Label" parent="Player"]
 anchor_left = 0.5
@@ -67,7 +70,7 @@ margin_left = -65.2346
 margin_top = 165.789
 margin_right = 148.765
 margin_bottom = 224.789
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 0.796078, 0, 1 )
 text = "START GAME"
@@ -106,7 +109,7 @@ custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.647059, 0.647059, 0.647059, 1 )
 text = "DIGGER"
 
-[node name="Sfx" parent="." instance=ExtResource( 5 )]
+[node name="Sfx" parent="." instance=ExtResource( 6 )]
 
 [connection signal="mouse_entered" from="Player/Label/Start" to="." method="_on_Start_mouse_entered"]
 [connection signal="pressed" from="Player/Label/Start" to="." method="_on_Button_pressed"]

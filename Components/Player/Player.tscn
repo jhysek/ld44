@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Components/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/influence_range.png" type="Texture" id=2]
-[ext_resource path="res://Components/Player/Assets/cartoon/body.png" type="Texture" id=3]
+[ext_resource path="res://Components/Player/Assets/slender/body.png" type="Texture" id=3]
 [ext_resource path="res://Components/Player/Assets/cartoon/head.png" type="Texture" id=4]
 [ext_resource path="res://Components/Player/Assets/cartoon/hair.png" type="Texture" id=5]
 [ext_resource path="res://Components/Player/Assets/cartoon/left_arm.png" type="Texture" id=6]
@@ -48,7 +48,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -20.8309, -57.5311 ) ]
+"values": [ Vector2( -15.7324, -58.1684 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Visual/Body/LeftArm:rotation_degrees")
@@ -84,7 +84,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 26.0662, -65.3724 ) ]
+"values": [ Vector2( 19.6931, -62.1859 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Visual/Body/LeftLeg:position")
@@ -271,7 +271,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -20.8309, -57.5311 ) ]
+"values": [ Vector2( -15.7324, -58.1684 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Visual/Body/LeftArm:rotation_degrees")
@@ -307,7 +307,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 26.0662, -65.3724 ) ]
+"values": [ Vector2( 19.6931, -62.1859 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Visual/Body/LeftLeg:position")
@@ -671,7 +671,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -20.8309, -57.5311 ), Vector2( -20.8309, -57.5311 ) ]
+"values": [ Vector2( -15.7324, -58.1684 ), Vector2( -20.8309, -57.5311 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Visual/Body/LeftArm:rotation_degrees")
@@ -707,7 +707,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 26.0662, -65.3724 ), Vector2( 26.0662, -65.3724 ) ]
+"values": [ Vector2( 19.6931, -62.1859 ), Vector2( 26.0662, -65.3724 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Visual/Body/LeftLeg:position")
@@ -1074,13 +1074,13 @@ texture = ExtResource( 10 )
 
 [node name="BreakupRay" type="RayCast2D" parent="."]
 position = Vector2( 1.81381, 0.794479 )
-scale = Vector2( -1, 1 )
 enabled = true
 cast_to = Vector2( 600, 0 )
 collision_mask = 32
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
+playback_speed = 2.0
 anims/Breakup = SubResource( 3 )
 anims/Idle = SubResource( 4 )
 anims/Jump = SubResource( 5 )

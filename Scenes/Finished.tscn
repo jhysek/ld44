@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Finished.gd" type="Script" id=1]
 [ext_resource path="res://Assets/bebas.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/Menubg.tscn" type="PackedScene" id=3]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=1]
 size = 20
+use_mipmaps = true
+use_filter = true
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -13,13 +16,13 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 20
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=4]
 size = 80
 use_mipmaps = true
 use_filter = true
@@ -27,13 +30,17 @@ font_data = ExtResource( 2 )
 
 [node name="Finished" type="Node2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 561.134 ],
+"_edit_vertical_guides_": [ 228.422 ]
+}
 
 [node name="Button" type="Button" parent="."]
 margin_left = 608.5
 margin_top = 532.792
 margin_right = 732.5
 margin_bottom = 565.792
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_hover = Color( 1, 0.843137, 0, 1 )
 text = "Back to menu"
 flat = true
@@ -54,15 +61,14 @@ You   could   be    really   great"
 [node name="Title4" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 230.907
-margin_top = 505.435
-margin_right = 755.907
-margin_bottom = 614.435
+margin_left = 227.485
+margin_top = 534.037
+margin_right = 752.485
+margin_bottom = 643.037
 rect_pivot_offset = Vector2( 203.194, 59.5628 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.560784, 0.560784, 0.560784, 1 )
-text = "Thanks     for    playing !  
-I   HOPE   YOU   HAVE    LEARNED   SOMETHING  ..."
+text = "Thanks     for    playing!"
 
 [node name="Title2" type="Label" parent="."]
 anchor_left = 0.5
@@ -71,7 +77,7 @@ margin_left = 226.008
 margin_top = 263.6
 margin_right = 578.008
 margin_bottom = 383.6
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 0.843137, 0, 1 )
 text = "GOLD"
 
@@ -82,8 +88,11 @@ margin_left = 406.008
 margin_top = 263.6
 margin_right = 758.008
 margin_bottom = 383.6
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "DIGGER !"
+
+[node name="Sprite" parent="." instance=ExtResource( 3 )]
+position = Vector2( 616.556, 259.281 )
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
