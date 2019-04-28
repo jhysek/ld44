@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ld44.ogg-381a1997f27f3c6582349af55a1709e2.oggstr"
+
+[deps]
+
+source_file="res://Assets/ld44.ogg"
+dest_files=[ "res://.import/ld44.ogg-381a1997f27f3c6582349af55a1709e2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

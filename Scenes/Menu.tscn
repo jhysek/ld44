@@ -20,6 +20,7 @@ font_data = ExtResource( 3 )
 [node name="Menu" type="Node2D"]
 script = ExtResource( 1 )
 __meta__ = {
+"_edit_horizontal_guides_": [ 295.194 ],
 "_edit_vertical_guides_": [ 448.875 ]
 }
 
@@ -31,8 +32,12 @@ GRAVITY = 0
 dead = true
 
 [node name="InfluenceRange" parent="Player" index="1"]
-visible = true
-modulate = Color( 1, 1, 1, 1 )
+scale = Vector2( 1, 1 )
+
+[node name="Light2D" parent="Player/InfluenceRange" index="1"]
+texture_scale = 1.0
+
+[node name="Sprite" parent="Player/InfluenceRange" index="2"]
 scale = Vector2( 1, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -77,13 +82,23 @@ text = "Ludum   Dare  #44  Compo  Entry
 Made  IN  48h  from  scratch  by  JIRI  HYSEK"
 autowrap = true
 
+[node name="Label2" type="Label" parent="Player/Label"]
+margin_left = 2.19705
+margin_top = -20.2178
+margin_right = 432.197
+margin_bottom = 118.782
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.333333, 0.333333, 0.333333, 1 )
+text = "THE"
+autowrap = true
+
 [node name="Label2" type="Label" parent="Player"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 400.934
-margin_top = -304.747
-margin_right = 568.934
-margin_bottom = -224.747
+margin_left = 401.302
+margin_top = -303.643
+margin_right = 569.302
+margin_bottom = -223.643
 rect_scale = Vector2( -1, 1 )
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.647059, 0.647059, 0.647059, 1 )

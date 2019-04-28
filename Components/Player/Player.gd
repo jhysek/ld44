@@ -18,12 +18,16 @@ onready var breakup_ray = $BreakupRay
 onready var influence_range = $InfluenceRange
 onready var anim = $AnimationPlayer
 onready var sprite = $Visual
+onready var game = get_node("/root/Level")
 
 func _ready():
   set_physics_process(true)
 
 
 func _physics_process(delta):
+	if game and game.paused:
+		return
+		
 	motion.y += GRAVITY * delta
 	
 	if not dead:
@@ -40,6 +44,7 @@ func controlled_process(delta):
 	if grounded:
 		in_air = false
 		jump_timeout = 0
+		
 	elif !in_air and jump_timeout <= 0:
 		jump_timeout = 0.11
 		
@@ -102,7 +107,8 @@ func controlled_process(delta):
 			anim.play("Possess")
 			possessing = true
 			for body in influence_range.get_overlapping_bodies():
-				body.possess()
+				if body.is_in_group("Possessable"):
+					body.possess()
 				
 		
 	else:

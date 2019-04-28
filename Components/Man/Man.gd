@@ -11,13 +11,18 @@ var was_in_air = false
 var jump_timeout = 0
 
 var motion = Vector2(0,0)
+var external_force = Vector2(0,0)
 
 onready var anim = $AnimationPlayer
+onready var game = get_node("/root/Level")
 
 func _ready():
 	set_physics_process(true)
 	
 func _physics_process(delta):
+	if game and game.paused:
+		return
+
 	motion.y += GRAVITY * delta
 	
 	if possessed and not dead:
@@ -26,7 +31,7 @@ func _physics_process(delta):
 	if dead:
 		motion.x = lerp(motion.x, 0, 4 * delta)
 			
-	motion = move_and_slide(motion, Vector2(0, -1), 1, 4)
+	motion = move_and_slide(motion + external_force, Vector2(0, -1), 1, 4)
 	
 func possess():
 	print("POSSESSED");

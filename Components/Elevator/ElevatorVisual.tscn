@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/white.png" type="Texture" id=1]
+[ext_resource path="res://Components/Elevator/arrow.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 122.042, 429.05 )
+
+[node name="Texture" type="TextureRect"]
+modulate = Color( 1, 1, 1, 0.286275 )
+margin_left = 182.02
+margin_top = -639.527
+margin_right = 434.02
+margin_bottom = 256.473
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 2
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 123.033, 762.803 )
+scale = Vector2( 0.466858, 0.378622 )
+texture = ExtResource( 2 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 118.932, 412.16 )
+scale = Vector2( 0.466858, 0.378622 )
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 118.932, 580.305 )
+scale = Vector2( 0.466858, 0.378622 )
+texture = ExtResource( 2 )
+
+[node name="Sprite4" type="Sprite" parent="."]
+position = Vector2( 114.831, 229.661 )
+scale = Vector2( 0.466858, 0.378622 )
+texture = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 131.26, 440.18 )
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -6.15137, 12.3033 )
+shape = SubResource( 1 )
+

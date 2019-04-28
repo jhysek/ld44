@@ -15,7 +15,7 @@
 extents = Vector2( 20.0534, 88.778 )
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 385.053
+radius = 760.0
 
 [sub_resource type="Animation" id=3]
 resource_name = "Breakup"
@@ -363,6 +363,30 @@ tracks/9/keys = {
 "update": 0,
 "values": [ 1.0 ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("Visual/Body/Head/Hair:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 4.6427, 31.725 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Visual/Body/Head/Hair:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "Jump"
@@ -507,12 +531,12 @@ tracks/1/path = NodePath("InfluenceRange:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5, 0.8, 1.5 ),
+"times": PoolRealArray( 0, 0.5, 1.2, 1.5 ),
 "transitions": PoolRealArray( 0.378929, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0.1, 0.1 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 3, 3 ) ]
+"values": [ Vector2( 0.1, 0.1 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.5, 0.5 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("InfluenceRange:modulate")
@@ -539,6 +563,42 @@ tracks/3/keys = {
 "args": [  ],
 "method": "stop_possessing"
 } ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("InfluenceRange/Sprite:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.183011, 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.1 ), Vector2( 2, 2 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("InfluenceRange/CollisionShape2D:shape:radius")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 760.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("InfluenceRange/Light2D:texture_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.183011, 1 ),
+"update": 0,
+"values": [ 0.01, 2.0 ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -727,6 +787,30 @@ tracks/11/keys = {
 "update": 0,
 "values": [ 2.0 ]
 }
+tracks/12/type = "value"
+tracks/12/path = NodePath("Visual/Body/Head/Hair:rotation_degrees")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 20.557, 6.11499 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Visual/Body/Head/Hair:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 4.6427, 31.725 ), Vector2( -21.8997, 45.4988 ), Vector2( -10.0994, 36.8647 ) ]
+}
 
 [sub_resource type="Animation" id=9]
 length = 1.2
@@ -875,8 +959,34 @@ tracks/11/keys = {
 "update": 0,
 "values": [ 2.0 ]
 }
+tracks/12/type = "value"
+tracks/12/path = NodePath("Visual/Body/Head/Hair:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 4.6427, 31.725 ), Vector2( -5.74951, 31.725 ), Vector2( 4.6427, 31.725 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Visual/Body/Head/Hair:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 17.9684, 0.0 ]
+}
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"Elevatable",
+]]
 collision_layer = 65
 collision_mask = 65
 script = ExtResource( 1 )
@@ -886,25 +996,24 @@ position = Vector2( 1.58885, -32.7878 )
 shape = SubResource( 1 )
 
 [node name="InfluenceRange" type="Area2D" parent="."]
-visible = false
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 4.2323, -76.1809 )
-scale = Vector2( 3, 3 )
+scale = Vector2( 0.5, 0.5 )
 collision_layer = 32
 collision_mask = 32
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InfluenceRange"]
+shape = SubResource( 2 )
+
 [node name="Light2D" type="Light2D" parent="InfluenceRange"]
 texture = ExtResource( 2 )
+texture_scale = 0.01
 color = Color( 0.694118, 0, 0.686275, 1 )
 shadow_enabled = true
 
 [node name="Sprite" type="Sprite" parent="InfluenceRange"]
 modulate = Color( 0.458824, 0, 0.439216, 0.239216 )
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InfluenceRange"]
-visible = false
-shape = SubResource( 2 )
 
 [node name="Visual" type="Node2D" parent="."]
 scale = Vector2( 0.5, 0.5 )
@@ -914,7 +1023,6 @@ position = Vector2( 1.38987, 0 )
 texture = ExtResource( 3 )
 
 [node name="Head" type="Sprite" parent="Visual/Body"]
-editor/display_folded = true
 show_behind_parent = true
 position = Vector2( 4.8414, -157.232 )
 texture = ExtResource( 4 )
@@ -960,13 +1068,13 @@ texture = ExtResource( 10 )
 
 [node name="BreakupRay" type="RayCast2D" parent="."]
 position = Vector2( 1.81381, 0.794479 )
+scale = Vector2( -1, 1 )
 enabled = true
 cast_to = Vector2( 600, 0 )
 collision_mask = 32
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
-playback_speed = 2.0
 anims/Breakup = SubResource( 3 )
 anims/Idle = SubResource( 4 )
 anims/Jump = SubResource( 5 )

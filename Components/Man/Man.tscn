@@ -16,7 +16,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20.92, 78.35 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=2]
 resource_name = "Breakup"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Visual/Body/Head:rotation_degrees")
@@ -67,7 +67,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 12 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "FallInLove"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Heart:self_modulate")
@@ -132,8 +132,7 @@ tracks/4/keys = {
 "values": [ ExtResource( 4 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Idle"
+[sub_resource type="Animation" id=4]
 length = 1.5
 loop = true
 tracks/0/type = "value"
@@ -317,8 +316,7 @@ tracks/14/keys = {
 "values": [ 1.0 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "WalkLeft"
+[sub_resource type="Animation" id=5]
 length = 1.2
 loop = true
 tracks/0/type = "value"
@@ -514,8 +512,7 @@ tracks/15/keys = {
 "values": [ 1.5 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "WalkRight"
+[sub_resource type="Animation" id=6]
 length = 1.2
 loop = true
 tracks/0/type = "value"
@@ -711,7 +708,10 @@ tracks/15/keys = {
 "values": [ 1.5 ]
 }
 
-[node name="Man" type="KinematicBody2D"]
+[node name="Man" type="KinematicBody2D" groups=[
+"Elevatable",
+"Possessable",
+]]
 position = Vector2( 112.58, 0 )
 collision_layer = 97
 collision_mask = 97
@@ -781,11 +781,11 @@ offset = Vector2( 6.99261, 34.6108 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
-anims/Breakup = SubResource( 6 )
-anims/FallInLove = SubResource( 5 )
-anims/Idle = SubResource( 2 )
-anims/WalkLeft = SubResource( 4 )
-anims/WalkRight = SubResource( 3 )
+anims/Breakup = SubResource( 2 )
+anims/FallInLove = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+anims/WalkLeft = SubResource( 5 )
+anims/WalkRight = SubResource( 6 )
 
 [node name="Broken" type="Node2D" parent="."]
 
