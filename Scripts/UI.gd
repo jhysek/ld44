@@ -5,7 +5,7 @@ onready var game = get_node("/root/Level")
 func _on_Resume_pressed():
 	$Sfx/Click.play()
 	game.paused = false
-	get_parent().hide()
+	$Wrapper/PauseMenu.hide()
 
 
 func _on_Restart_pressed():
