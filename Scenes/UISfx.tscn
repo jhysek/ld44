@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/btn_hover.wav" type="AudioStream" id=1]
+[ext_resource path="res://Assets/btn_click.wav" type="AudioStream" id=2]
+
+[node name="Sfx" type="Node"]
+
+[node name="Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -15.0
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -5.0
+

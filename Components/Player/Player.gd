@@ -19,6 +19,7 @@ onready var influence_range = $InfluenceRange
 onready var anim = $AnimationPlayer
 onready var sprite = $Visual
 onready var game = get_node("/root/Level")
+onready var sfx_run = $Sfx/Run
 
 func _ready():
   set_physics_process(true)
@@ -53,8 +54,8 @@ func controlled_process(delta):
 		if jump_timeout <= 0:
 			in_air = true
 
-	#if was_in_air and !in_air:
-	#	$Sfx/Jump.play()
+	if was_in_air and !in_air:
+		$Sfx/Jump.play()
 		
 	was_in_air = in_air
 	
@@ -65,52 +66,51 @@ func controlled_process(delta):
 			jump_timeout = 0
 			if !breaking_up and !possessing:
 			  anim.play("Jump")
-			#$Sfx/Jump0.play()
+			$Sfx/Jump.play()
 			motion.y = JUMP_SPEED
-			#if sfx_run:
-			#	sfx_run.stop()
+			print("STOP RUNNING")
+			sfx_run.stop()
 	
 		if Input.is_action_pressed('ui_right'):
 			if !breaking_up and !possessing and !in_air and anim.current_animation != "WalkRight":
 			  anim.play("WalkRight")
 			motion.x = min(motion.x + SPEED * delta, SPEED * delta)
 			sprite.scale.x = 0.5
-			#if sfx_run and !sfx_run.playing and !in_air:
-			#	 sfx_run.play()
-			#	 $RunParticles.emitting = true
+			if sfx_run and !sfx_run.playing and !in_air:
+				print("START RUNNING")
+				sfx_run.play()
 				
 		if Input.is_action_pressed('ui_left'):
 			if not breaking_up and not possessing and  not in_air and anim.current_animation != "WalkLeft":
 			  anim.play("WalkLeft")
 			motion.x = max(motion.x - SPEED * delta, -SPEED * delta)
 			sprite.scale.x = -0.5
-			
-			#if sfx_run and !sfx_run.playing and !in_air:
-			#	 sfx_run.play()
-			#	 $RunParticles.emitting = true
+			if sfx_run and !sfx_run.playing and !in_air:
+				 sfx_run.play()
 			
 		elif !Input.is_action_pressed('ui_right'):
 			if not breaking_up and not possessing and !in_air and anim.current_animation != "Idle" and anim.current_animation != "Breakup" and not possessing:
 				anim.play("Idle")
-			#	$RunParticles.emitting = false
 				
 			motion.x = 0
-			#if sfx_run:
-			#	sfx_run.stop()
+			if sfx_run and sfx_run.playing:
+				print("SFX RUN STOPPING")
+				sfx_run.stop()
 				
 		if Input.is_action_just_pressed('ui_breakup'):
 			anim.play("Breakup")
 			breaking_up = true
 			$BreakUpTimer.start()
+			$Sfx/Breakup1.play()
 				
 		if !breaking_up and Input.is_action_just_pressed('ui_select'):
 			anim.play("Possess")
 			possessing = true
+			$Sfx/Possess1.play()
 			for body in influence_range.get_overlapping_bodies():
 				if body.is_in_group("Possessable"):
 					body.possess()
 				
-		
 	else:
 		motion.x = 0
 

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/jimp.wav-89b882a2bd75622a096b494fe9c3a735.sample"
+
+[deps]
+
+source_file="res://Components/Player/Assets/jimp.wav"
+dest_files=[ "res://.import/jimp.wav-89b882a2bd75622a096b494fe9c3a735.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

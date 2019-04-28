@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Components/Man/Man.gd" type="Script" id=1]
 [ext_resource path="res://Components/Man/Assets/heart.png" type="Texture" id=2]
@@ -7,11 +7,12 @@
 [ext_resource path="res://Components/Man/Assets/right_leg_top.png" type="Texture" id=5]
 [ext_resource path="res://Components/Man/Assets/right_leg_middle.png" type="Texture" id=6]
 [ext_resource path="res://Components/Man/Assets/shoe.png" type="Texture" id=7]
-[ext_resource path="res://Components/Man/Assets/left_leg_top.png" type="Texture" id=8]
-[ext_resource path="res://Components/Man/Assets/left_leg_middle.png" type="Texture" id=9]
-[ext_resource path="res://Components/Man/Assets/left_arm.png" type="Texture" id=10]
+[ext_resource path="res://Components/Man/Assets/left_arm.png" type="Texture" id=8]
+[ext_resource path="res://Components/Man/Assets/left_leg_top.png" type="Texture" id=9]
+[ext_resource path="res://Components/Man/Assets/left_leg_middle.png" type="Texture" id=10]
 [ext_resource path="res://Components/Man/Assets/right_arm.png" type="Texture" id=11]
 [ext_resource path="res://Components/Man/Assets/head_sad.png" type="Texture" id=12]
+[ext_resource path="res://Components/Man/Assets/pop.wav" type="AudioStream" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20.92, 78.35 )
@@ -752,26 +753,26 @@ position = Vector2( -2.31645, 26.8709 )
 texture = ExtResource( 7 )
 offset = Vector2( 5.55949, 3.24304 )
 
+[node name="ArmLeft" type="Sprite" parent="Visual/Body"]
+position = Vector2( -31.0838, -29.0513 )
+texture = ExtResource( 8 )
+offset = Vector2( -7.36942, 33.2209 )
+
 [node name="LegLeft" type="Sprite" parent="Visual/Body"]
 show_behind_parent = true
 position = Vector2( -13.0154, 32.7307 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 offset = Vector2( -1.34663, 18.2314 )
 
 [node name="LegMiddle" type="Sprite" parent="Visual/Body/LegLeft"]
 position = Vector2( -1.85318, 35.0236 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 offset = Vector2( -1.85315, 11.7689 )
 
 [node name="Shoe" type="Sprite" parent="Visual/Body/LegLeft/LegMiddle"]
 position = Vector2( -2.31645, 26.8709 )
 texture = ExtResource( 7 )
 offset = Vector2( 5.55949, 3.24304 )
-
-[node name="ArmLeft" type="Sprite" parent="Visual/Body"]
-position = Vector2( -31.0838, -29.0513 )
-texture = ExtResource( 10 )
-offset = Vector2( -7.36942, 33.2209 )
 
 [node name="ArmRight" type="Sprite" parent="Visual/Body"]
 show_behind_parent = true
@@ -789,3 +790,12 @@ anims/WalkRight = SubResource( 6 )
 
 [node name="Broken" type="Node2D" parent="."]
 
+[node name="Sfx" type="Node" parent="."]
+
+[node name="Pop" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 13 )
+
+[node name="PossessTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="PossessTimer" to="." method="_on_PossessTimer_timeout"]

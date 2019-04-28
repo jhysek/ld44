@@ -10,6 +10,7 @@ func _ready():
 
 func activate():
 	active = true
+	$Sfx/Trigger.play()
 	$Indicator/Label.text = "ON"
 	$Indicator.modulate = Color("#ffffff")
 	$Texture.modulate = Color("#aaffffff")
@@ -19,6 +20,7 @@ func activate():
 		
 func deactivate():
 	active = false
+	$Sfx/Trigger.play()
 	$Indicator/Label.text = "OFF"
 	$Indicator.modulate = Color("#5e5e5e")
 	$Texture.modulate = Color("#49ffffff")
@@ -27,10 +29,13 @@ func deactivate():
 			body.external_force = Vector2(0,0)
 
 func _on_Trigger_body_entered(body):
-	activate()
+	if !active:
+	  activate()
 	
 func _on_Trigger_body_exited(body):
-	deactivate()
+	var overlapping = $Trigger.get_overlapping_bodies()
+	if overlapping.size() <= 1:
+		deactivate()
 
 func _on_Area2D_body_entered(body):
 	print("BODY ENTERED")

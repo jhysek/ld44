@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Components/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/influence_range.png" type="Texture" id=2]
@@ -10,6 +10,11 @@
 [ext_resource path="res://Components/Player/Assets/cartoon/leg.png" type="Texture" id=8]
 [ext_resource path="res://Components/Player/Assets/heart_left.png" type="Texture" id=9]
 [ext_resource path="res://Components/Player/Assets/heart_right.png" type="Texture" id=10]
+[ext_resource path="res://Components/Player/Assets/possess01.wav" type="AudioStream" id=11]
+[ext_resource path="res://Components/Player/Assets/possess02.wav" type="AudioStream" id=12]
+[ext_resource path="res://Components/Player/Assets/breakup01.wav" type="AudioStream" id=13]
+[ext_resource path="res://Components/Player/Assets/jimp.wav" type="AudioStream" id=14]
+[ext_resource path="res://Components/Player/Assets/walk.ogg" type="AudioStream" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20.0534, 88.778 )
@@ -1086,5 +1091,23 @@ anims/WalkRight = SubResource( 9 )
 [node name="BreakUpTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="Sfx" type="Node" parent="."]
+
+[node name="Possess1" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 11 )
+
+[node name="Possess2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 12 )
+
+[node name="Breakup1" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 13 )
+
+[node name="Jump" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 14 )
+volume_db = -5.0
+
+[node name="Run" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 15 )
 
 [connection signal="timeout" from="BreakUpTimer" to="." method="_on_BreakUpTimer_timeout"]

@@ -34,10 +34,9 @@ func _physics_process(delta):
 	motion = move_and_slide(motion + external_force, Vector2(0, -1), 1, 4)
 	
 func possess():
-	print("POSSESSED");
-	possessed = false
-	anim.play("FallInLove")
-	
+	$PossessTimer.wait_time = rand_range(0.3, 0.7);
+	$PossessTimer.start()
+
 	
 func set_possessed():
 	possessed = true
@@ -112,4 +111,11 @@ func controlled_process(delta):
 		
 		#if !Input.is_action_pressed('ui_possess'):
 		#	stop_posessing()
+
+
+
+func _on_PossessTimer_timeout():	
+	possessed = false
+	$Sfx/Pop.play()
+	anim.play("FallInLove")
 

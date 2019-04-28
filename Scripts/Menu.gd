@@ -14,4 +14,8 @@ func _ready():
 
 
 func _on_Button_pressed():
+	$Sfx/Click.play()
 	LevelControler.start_level()
+
+func _on_Start_mouse_entered():
+	$Sfx/Hover.play()
