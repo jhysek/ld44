@@ -68,7 +68,6 @@ func controlled_process(delta):
 			  anim.play("Jump")
 			$Sfx/Jump.play()
 			motion.y = JUMP_SPEED
-			print("STOP RUNNING")
 			sfx_run.stop()
 	
 		if Input.is_action_pressed('ui_right'):
@@ -77,7 +76,6 @@ func controlled_process(delta):
 			motion.x = min(motion.x + SPEED * delta, SPEED * delta)
 			sprite.scale.x = 0.5
 			if sfx_run and !sfx_run.playing and !in_air:
-				print("START RUNNING")
 				sfx_run.play()
 				
 		if Input.is_action_pressed('ui_left'):
@@ -94,7 +92,6 @@ func controlled_process(delta):
 				
 			motion.x = 0
 			if sfx_run and sfx_run.playing:
-				print("SFX RUN STOPPING")
 				sfx_run.stop()
 				
 		if Input.is_action_just_pressed('ui_breakup'):
@@ -116,6 +113,7 @@ func controlled_process(delta):
 
 func broke_up():
 	breaking_up = false
+	$Visual/Heart.modulate = Color(1,1,1,0)
 	if breakup_ray.is_colliding():
 		breakup_ray.get_collider().breakup()
 
@@ -124,4 +122,4 @@ func stop_possessing():
 	
 
 func _on_BreakUpTimer_timeout():
-	broke_up();	
+	broke_up();

@@ -21,4 +21,6 @@ func _input(event):
 				pause_menu.hide()
 				paused = false
 			
+func next_level():
+	LevelControler.switch_to_next_level()
 		

@@ -6,13 +6,12 @@
 extents = Vector2( 61.231, 41.7465 )
 
 [node name="Trigger" type="Area2D"]
-editor/display_folded = true
 position = Vector2( 3387.66, -220.391 )
-collision_layer = 64
-collision_mask = 64
+collision_layer = 65
+collision_mask = 65
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 4.18994, -12.5701 )
+position = Vector2( 2.96069, -18.1025 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]

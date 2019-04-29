@@ -5,4 +5,4 @@ export var active = false
 
 func _on_Exit_body_entered(body):
 	if active:
-		LevelControler.switch_to_next_level()	
+		get_node("/root/Level/AnimationPlayer").play("NextLevel")

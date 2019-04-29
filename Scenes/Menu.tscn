@@ -48,6 +48,7 @@ position = Vector2( 227.918, -77.9208 )
 current = true
 
 [node name="Sprite" parent="Player" instance=ExtResource( 3 )]
+position = Vector2( 199.698, -685.33 )
 
 [node name="Label" type="Label" parent="Player"]
 anchor_left = 0.5
@@ -82,18 +83,18 @@ margin_top = 89.1188
 margin_right = 433.587
 margin_bottom = 228.119
 custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.333333, 0.333333, 0.333333, 1 )
+custom_colors/font_color = Color( 0.501961, 0.501961, 0.501961, 1 )
 text = "Ludum   Dare  #44  Compo  Entry
 Made  IN  48h  from  scratch  by  JIRI  HYSEK"
 autowrap = true
 
 [node name="Label2" type="Label" parent="Player/Label"]
 margin_left = 2.19705
-margin_top = -20.2178
+margin_top = -22.8025
 margin_right = 432.197
-margin_bottom = 118.782
+margin_bottom = 116.197
 custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.333333, 0.333333, 0.333333, 1 )
+custom_colors/font_color = Color( 0.831373, 0.831373, 0.831373, 1 )
 text = "THE"
 autowrap = true
 
